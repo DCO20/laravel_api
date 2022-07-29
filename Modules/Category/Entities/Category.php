@@ -4,6 +4,7 @@ namespace Modules\Category\Entities;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Modules\Product\Entities\Product;
 
 class Category extends Model
 {
@@ -45,4 +46,25 @@ class Category extends Model
         'updated_at',
         'deleted_at',
     ];
+
+    /*
+    |--------------------------------------------------------------------------
+    | Relationship
+    |--------------------------------------------------------------------------
+    |
+    | Definição dos métodos das entidades relacionadas.
+    | Estes métodos são responsáveis pelas relações e permitem acessar
+    | os atributos Eloquent obtidas das mesmas.
+    |
+    */
+
+    /**
+     * Obtêm os produtos
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function products()
+    {
+        return $this->hasMany(Product::class);
+    }
 }
