@@ -17,6 +17,7 @@ class CategoryAction
     {
         $data = [
             'name' => $request['name'],
+            'slug' => $request['slug'],
             'active' => $request['active'],
         ];
 

@@ -15,6 +15,7 @@ class CategoryRequest extends FormRequest
     {
         $rules = [
             'name' => 'required',
+            'slug' => 'required',
             'active' => 'required',
         ];
 
