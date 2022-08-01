@@ -35,10 +35,6 @@ class ApiProductController extends Controller
     {
         $data = $request->all();
 
-        if ($request->image) {
-            $data['image'] = $request->image->store('products');
-        }
-
         $this->product_service->updateOrCreate($data);
 
         return response()->json([
@@ -71,12 +67,10 @@ class ApiProductController extends Controller
 
         $data = $request->all();
 
-        if ($request->image && $request->image->isValid()) {
-            if (Storage::exists($product->image)) {
+        if ($request->image) {
+            if ($product->image && Storage::exists($product->image)) {
                 Storage::delete($product->image);
             }
-
-            $data['image'] = $request->image->store('products');
         }
 
         $this->product_service->updateOrCreate($data, $product->id);

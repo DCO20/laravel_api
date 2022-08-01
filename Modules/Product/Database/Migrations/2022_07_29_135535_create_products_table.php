@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('slug');
-            $table->string('image')->nullable();
+            $table->string('image');
             $table->decimal('price', 10, 2);
             $table->boolean('active');
             $table->text('description');

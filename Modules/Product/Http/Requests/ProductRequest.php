@@ -16,7 +16,7 @@ class ProductRequest extends FormRequest
         $rules = [
             'name' => 'required',
             'category_id' => 'required',
-            'image' => 'image',
+            'image' => 'required|image|max:1024',
             'active' => 'required',
             'price' => 'required',
             'description' => 'required',
